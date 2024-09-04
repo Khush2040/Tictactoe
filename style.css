@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-in-out;
+    transform: rotateY(45deg) rotateX(45deg);
+    transition: transform 0.5s;
+}
+
+.game-container:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+    transform-style: preserve-3d;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: 600;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+}
+
+.cell:hover {
+    background: #f1f1f1;
+    transform: translateZ(30px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.cell.x {
+    color: #4CAF50;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.cell.o {
+    color: #f44336;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.game-info {
+    text-align: center;
+    transform: translateZ(50px);
+}
+
+#gameStatus {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#restartBtn {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#restartBtn:hover {
+    background-color: #007bb5;
+    transform: translateZ(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
